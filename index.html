@@ -3,115 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PageTurner Online Bookstore</title>
+    <title>PageTurner | Online Bookstore</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>📚 PageTurner Bookstore</h1>
+    <header class="site-header">
+        <a class="brand" href="#">📚 PageTurner</a>
         <nav>
             <a href="#catalog">Books</a>
+            <a href="#ratings">Ratings</a>
+            <a href="#faculty">Faculty</a>
             <a href="#orders">Track Order</a>
-            <button id="cart-toggle">Cart (<span id="cart-count">0</span>)</button>
+            <button id="cart-toggle" class="cart-button">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </button>
         </nav>
     </header>
 
     <section class="hero">
-        <p>YOUR NEXT CHAPTER STARTS HERE</p>
-        <h2>Discover your next<br>favorite book.</h2>
-        <a href="#catalog" class="cta">Explore Books →</a>
+        <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1>Discover your next<br>favorite book.</h1>
+        <p>Explore inspiring stories, practical knowledge, and new ideas.</p>
+        <a href="#catalog" class="cta">Explore Books ↓</a>
     </section>
 
     <main>
-        <section id="catalog">
-            <h2>Our Book Collection</h2>
+        <section id="catalog" class="content-section">
+            <div class="section-heading">
+                <p class="eyebrow">THE COLLECTION</p>
+                <h2>Find Your Next Read</h2>
+                <p>Browse our books by title, author, or category.</p>
+            </div>
+
             <div class="toolbar">
                 <input id="search" type="search"
-                       placeholder="Search by title or author..."
-                       aria-label="Search books">
+                    placeholder="Search by title or author..."
+                    aria-label="Search books">
                 <select id="category" aria-label="Filter category">
                     <option value="All">All Categories</option>
-                    <option>Fiction</option>
-                    <option>Technology</option>
-                    <option>Personal Growth</option>
-                    <option>Mystery</option>
-                    <option>Fantasy</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Personal Growth">Personal Growth</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Fantasy">Fantasy</option>
                 </select>
             </div>
-            <p id="result-count"></p>
+
+            <p id="result-count" aria-live="polite"></p>
             <div id="book-grid" class="book-grid"></div>
         </section>
 
-        <section id="orders">
-            <h2>Track Your Order</h2>
-            <form id="tracking-form">
-                <input id="order-id" placeholder="Enter order ID" required>
-                <button type="submit">Track Order</button>
+        <section id="ratings" class="content-section tinted-section">
+            <div class="section-heading">
+                <p class="eyebrow">READER FAVORITES</p>
+                <h2>⭐ Book Rating Summary</h2>
+                <p>Discover sample ratings for popular books.</p>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="rating">★★★★★</div>
+                    <h3>Clean Code</h3>
+                    <p><strong>4.9/5</strong></p>
+                    <p>250 reader reviews</p>
+                </article>
+                <article class="feature-card">
+                    <div class="rating">★★★★★</div>
+                    <h3>Atomic Habits</h3>
+                    <p><strong>4.8/5</strong></p>
+                    <p>320 reader reviews</p>
+                </article>
+                <article class="feature-card">
+                    <div class="rating">★★★★☆</div>
+                    <h3>Rich Dad Poor Dad</h3>
+                    <p><strong>4.5/5</strong></p>
+                    <p>180 reader reviews</p>
+                </article>
+            </div>
+            <p class="note">Ratings and review counts are sample demonstration data.</p>
+        </section>
+
+        <section id="faculty" class="content-section">
+            <div class="section-heading">
+                <p class="eyebrow">LEARN AND GROW</p>
+                <h2>👨‍🏫 Faculty Profile</h2>
+            </div>
+            <article class="feature-card faculty-card">
+                <div class="faculty-avatar" aria-hidden="true">👨‍🏫</div>
+                <h3>Dr. Arun Kumar</h3>
+                <p><strong>Role:</strong> Academic Advisor</p>
+                <p><strong>Specialization:</strong> Literature and Reading Skills</p>
+                <p>Encouraging students to develop a lifelong love of reading
+                    through books, knowledge, and continuous learning.</p>
+                <p class="note">Sample faculty profile for demonstration.</p>
+            </article>
+        </section>
+
+        <section id="orders" class="content-section tinted-section">
+            <div class="section-heading">
+                <p class="eyebrow">ORDER UPDATES</p>
+                <h2>Track Your Order</h2>
+                <p>Enter the order ID you received at checkout.</p>
+            </div>
+            <form id="tracking-form" class="tracking-form">
+                <input id="order-id" type="text"
+                    placeholder="Enter order ID (e.g. PT1001)"
+                    aria-label="Order ID" required>
+                <button type="submit" class="primary-button">Track Order</button>
             </form>
-            <p id="tracking-result" role="status"></p>
+            <p id="tracking-result" class="status-message" role="status"></p>
+            <p class="note">Demo tracking only. Orders are not shipped.</p>
+        </section>
+
+        <section class="content-section thank-you-section">
+            <div class="thank-you-icon">💖</div>
+            <h2>Thank You for Choosing PageTurner!</h2>
+            <p>Every book opens a new world. Thank you for supporting our
+                online bookstore. Happy Reading!</p>
+            <a href="#catalog" class="cta">Find Another Book ↑</a>
         </section>
     </main>
 
-    <aside id="cart-panel" aria-hidden="true">
-        <button id="cart-close" aria-label="Close cart">✕</button>
-        <h2>Your Shopping Cart</h2>
+    <aside id="cart-panel" class="cart-panel" aria-hidden="true">
+        <div class="cart-heading">
+            <h2>Your Shopping Cart</h2>
+            <button id="cart-close" class="close-button"
+                aria-label="Close cart">✕</button>
+        </div>
         <div id="cart-items"></div>
-        <h3>Total: <span id="cart-total">$0.00</span></h3>
-        <button id="checkout">Place Demo Order</button>
-        <p id="checkout-message" role="status"></p>
-        <p>Demo checkout only. No payment is collected.</p>
+        <h3 class="cart-total">Total: <span id="cart-total">$0.00</span></h3>
+        <button id="checkout" class="primary-button full-width">
+            Place Demo Order
+        </button>
+        <p id="checkout-message" class="status-message" role="status"></p>
+        <p class="note">Demo checkout only. No payment is collected.</p>
     </aside>
 
     <div id="overlay"></div>
 
     <footer>
-        <p>© 2026 PageTurner Bookstore | Happy Reading!</p>
+        <p>© 2026 PageTurner Bookstore | Happy Reading! 📚</p>
     </footer>
-        <!-- Feature 1: Book Rating Summary -->
-    <section class="feature-section">
-        <h2>⭐ Book Rating Summary</h2>
-        <p>Discover what readers think about our popular books!</p>
-
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>Clean Code</h3>
-                <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p><strong>4.9/5</strong> — 250 reader reviews</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>Atomic Habits</h3>
-                <p class="rating">⭐⭐⭐⭐⭐</p>
-                <p><strong>4.8/5</strong> — 320 reader reviews</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>Rich Dad Poor Dad</h3>
-                <p class="rating">⭐⭐⭐⭐☆</p>
-                <p><strong>4.5/5</strong> — 180 reader reviews</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Feature 2: Faculty Profile -->
-    <section class="feature-section">
-        <h2>👨‍🏫 Faculty Profile</h2>
-        <div class="feature-card faculty-card">
-            <div class="faculty-avatar">👨‍🏫</div>
-            <h3>Dr. Arun Kumar</h3>
-            <p><strong>Role:</strong> Academic Advisor</p>
-            <p><strong>Specialization:</strong> Literature and Reading Skills</p>
-            <p>Encouraging students to develop a lifelong love of reading
-            through books, knowledge, and continuous learning.</p>
-        </div>
-    </section>
-
-    <!-- Feature 3: Thank-You Message -->
-    <section class="feature-section thank-you-section">
-        <h2>💖 Thank You for Choosing PageTurner!</h2>
-        <p>Every book opens a new world. Thank you for supporting our
-        online bookstore. Happy Reading!</p>
-    </section>
 </body>
 </html>
